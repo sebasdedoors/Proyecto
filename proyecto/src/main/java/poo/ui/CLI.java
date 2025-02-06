@@ -13,6 +13,7 @@ public class CLI {
         /*Editar información de libros */
         System.out.println(" 3. Salir");
     }
+    /*Este metodo se encarga de generar el menu para el usuario. */
     public static void runApp(){
         showMenu();
         Scanner scanner = new Scanner(System.in);
