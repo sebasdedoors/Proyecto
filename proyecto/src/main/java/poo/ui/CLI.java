@@ -27,6 +27,9 @@ public class CLI {
                 case 2:
                     System.out.println("Libros que se han agregado: ");
                     break;
+                case 3:
+                    System.out.println("Saliendo del sistema");
+                    break;
                 default:
                     System.out.println("Invalid option");
                     break;
