@@ -1,9 +1,6 @@
 package poo.process;
 
-import java.util.List;
+public class BookGester {
 
-import java.util.ArrayList;
-
-public class bookgester {
-
+    
 }

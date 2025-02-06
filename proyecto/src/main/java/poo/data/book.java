@@ -1,5 +1,5 @@
 package poo.data;
 
-public class book {
+public class Book {
 
 }

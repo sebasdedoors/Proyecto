@@ -1,5 +1,5 @@
 package poo.process;
 
-public class basemanager {
+public class BaseManager {
 
 }

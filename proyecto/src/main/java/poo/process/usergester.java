@@ -1,5 +1,5 @@
 package poo.process;
 
-public class usergester {
+public class UserGester {
 
 }
