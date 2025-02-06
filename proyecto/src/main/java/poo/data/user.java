@@ -1,5 +1,7 @@
 package poo.data;
 
-public class user {
+public class User {
+    public static String[] users = 
+        {"sebasdedoors", "vickthor", "dani", "michel"};
 
 }

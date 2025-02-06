@@ -1,5 +1,7 @@
 package poo.process;
 
-public class basemanager {
+import poo.data.Book;
 
+public class BaseManager {
+    
 }
