@@ -1,6 +1,6 @@
 package poo.data;
 
-public class book {
+public class Book {
     public static String[] books = 
-        {"El orincipito"};
+        {"El principito"};
 }
