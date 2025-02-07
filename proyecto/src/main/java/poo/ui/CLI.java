@@ -178,9 +178,4 @@ public class CLI {
             System.out.println("Error al agregar el usuario: " + e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-        CLI cli = new CLI();
-        cli.runApp();
-    }
 }
