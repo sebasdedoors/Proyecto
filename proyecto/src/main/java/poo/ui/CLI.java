@@ -9,6 +9,7 @@ import poo.process.BookGester;
 import poo.process.UserGester;
 import poo.data.Book;
 import poo.data.User;
+import poo.ui.Lang;
 
 public class CLI {
     private Scanner scanner;
@@ -16,6 +17,7 @@ public class CLI {
     private UserGester userGester;
     private Map<String, String> messages;
     private String language;
+    private Lang lang;
 
     public CLI() { 
         scanner = new Scanner(System.in);
@@ -24,7 +26,14 @@ public class CLI {
         selectLanguage();
     }
 
-    private void selectLanguage() {
+    public CLI(Lang lang){
+        this.lang = lang;
+        this.scanner = new Scanner(System.in);
+        bookGester = new BookGester();
+        userGester = new UserGester();
+    }
+
+    public void selectLanguage() {
         //* Menu para poder selecionar idiamas*/
         System.out.println("\u001B[1;37m"+"+------------------------------------------------------------------------------------------------------------------+");
         System.out.println("| Bienvenido a la biblioteca virtual! | Welcome to the virtual library! | Willkommen in der virtuellen Bibliothek! |");
@@ -41,95 +50,25 @@ public class CLI {
 
         switch (option) {
             case 1:
-                language = "es";
+                lang = new Esp();
                 break;
             case 2:
-                language = "en";
+                lang = new Eng();
                 break;
             case 3:
-                language = "de";
+                lang = new De();
                 break;
             default:
                 System.out.println("Opción no válida. Español por defecto.");
-                language = "es";
+                lang = new Esp();
         }
-
-        loadMessages();
     }
 
-    private void loadMessages() {
-        messages = new HashMap<>();
 
-        if (language.equals("es")) {
-            messages.put("menu", "\u001B[1;34m"+"|             Menu:            |\n|     1. Agregar un Libro.     |\n|    2. Agregar un usuario.    |\n|      3. Mostrar libros.      |\n|     4. Mostrar usuarios.     |\n|           5. Salir           |"+"\u001B[0m");
-            messages.put("exit", "Gracias por visitarnos ;)... ");
-            messages.put("invalid", "Opción no válida, por favor intente de nuevo.");
-            messages.put("addBook", "Escriba el nombre del libro a agregar:");
-            messages.put("addUser", "Escriba el nombre de usuario por favor:");
-            messages.put("noBooks", "No hay libros en la lista.");
-            messages.put("noUsers", "No hay usuarios en la lista.");
-            messages.put("goodBook", "Libro agregado exitosamente.");
-            messages.put("errBook", "Error al agregar el libro: ");
-            messages.put("generBook", "Escriba el genero del libro por favor:");
-            messages.put("ageBook", "Escriba la edad recomendada del libro:");
-            messages.put("statusUser", "Escriba el estado del usuario por favor: ");
-            messages.put("goodUser","El  usuario se agregó con exito.");
-            messages.put("errUser", "Erro al agregar el usuario: ");
-            messages.put("user", "Nombre: ");
-            messages.put("status", "Estado: ");
-            messages.put("title", "Titulo: ");
-            messages.put("gener", "Genero: ");
-            messages.put("age","Edad recomendada: ");
-        } else if (language.equals("en")) {
-            messages.put("menu", "\u001B[1;33m"+"|             Menu:            |\n|        1. Add a Book.        |\n|        2. Add a User..       |\n|        3. Show books..       |\n|        4. Show users..       |\n|           5. Exit            |"+"\u001B[0m");
-            messages.put("exit", "Thank you for visiting us ;)...");
-            messages.put("invalid", "Invalid option, please try again.");
-            messages.put("addBook", "Enter the name of the book to add:");
-            messages.put("addUser", "Enter the username, please:");
-            messages.put("noBooks", "There are no books in the list.");
-            messages.put("noUsers", "There are no users in the list.");
-            messages.put("goodBook", "The books was added succesfully.");
-            messages.put("errBook", "There was an error in the creation: ");
-            messages.put("generBook", "Type the book's gener please:");
-            messages.put("ageBook", "Write the recommended age of this book:");
-            messages.put("statusUser", "Write the user's status please: ");
-            messages.put("goodUser","The user was added succesfully.");
-            messages.put("errUser", "Error in adding the user: ");
-            messages.put("user", "Name: ");
-            messages.put("status", "Status: ");
-            messages.put("title", "Title: ");
-            messages.put("gener", "Gener: ");
-            messages.put("age","Age recommended: ");
-        } else if (language.equals("de")) {
-            messages.put("menu", "\u001B[1;31m"+"|             Menü:            |\n|    1. Ein Buch hinzufügen.   |\n| 2. Einen Benutzer hinzufügen.|\n|      3. Bücher anzeigen.     |\n|     4. Benutzer anzeigen.    |\n|          5. Beenden          |"+"\u001B[0m");
-            messages.put("exit", "Danke für Ihren Besuch ;)...");
-            messages.put("invalid", "Ungültige Option, bitte versuchen Sie es erneut.");
-            messages.put("addBook", "Geben Sie den Namen des Buches ein, das hinzugefügt werden soll:");
-            messages.put("addUser", "Geben Sie den Benutzernamen ein, bitte:");
-            messages.put("noBooks", "Es gibt keine Bücher in der Liste.");
-            messages.put("noUsers", "Es gibt keine Benutzer in der Liste.");
-            messages.put("goodBook", "Das buch wurde erfolgreich hinzugefügt.");
-            messages.put("errBook", "Fehler beim hinzufügen zum buch: ");
-            messages.put("generBook", "Schreiben sie bitte das genre des buches:");
-            messages.put("ageBook", "Schreiben sie das empfohlene alter dieses buches");
-            messages.put("statusUser", "Bitte geben Sie den Benutzerstatus ein: ");
-            messages.put("goodUser","Der Benutzer wurde erfolgreich hinzugefügt.");
-            messages.put("errUser", "Fehler beim Hinzufügen des Benutzers: ");
-            messages.put("user", "Name: ");
-            messages.put("status", "Zustand: ");
-            messages.put("title", "Qualifikation: ");
-            messages.put("gener", "Geschlecht: ");
-            messages.put("age","Alter: ");
-            }
-        
-        }
-        
-    
-    
 
         private void showMenu() {
             System.out.println("\u001B[1;30m"+"+------------------------------+");
-            System.out.println(messages.get("menu"));
+            System.out.println(lang.MENU);
             System.out.println("\u001B[1;30m"+"+------------------------------+");
     }
 
@@ -153,11 +92,11 @@ public class CLI {
                     listUser();
                     break;
                 case 5:
-                    System.out.println(messages.get("exit"));
+                    System.out.println(lang.EXIT);
                     System.exit(0);
                     break;
                 default:
-                    System.out.println(messages.get("invalid"));
+                    System.out.println(lang.INVALID);
                     break;
             }
         }
@@ -166,10 +105,10 @@ public class CLI {
     private void listBook() {
         List<Book> gester = bookGester.getBook();
         if (gester.isEmpty()) {
-            System.out.println(messages.get("noBooks"));
+            System.out.println(lang.NOBOOKS);
         } else {
             for (Book book : gester) {
-                System.out.println(messages.get("title") + book.getTitulo() + messages.get("gener") + book.getGenero() + messages.get("age") + book.getEdad());
+                System.out.println(lang.TITLE + book.getTitulo() + lang.GENER + book.getGenero() + lang.AGE + book.getEdad());
             }
         }
     }
@@ -177,41 +116,41 @@ public class CLI {
     private void listUser() {
         List<User> gester = userGester.getUser();
         if (gester.isEmpty()) {
-            System.out.println(messages.get("noUsers"));
+            System.out.println(lang.NOUSERS);
         } else {
             for (User user : gester) {
-                System.out.println(messages.get("user") + user.getName() + messages.get("status") + user.getStatus());
+                System.out.println(lang.USER + user.getName() + lang.STATUS + user.getStatus());
             }
         }
     }
 
     private void addBook() {
         try {
-            System.out.println(messages.get("addBook"));
+            System.out.println(lang.ADDBOOK);
             String titulo = scanner.nextLine();
-            System.out.println(messages.get("generBook"));
+            System.out.println(lang.GENERBOOK);
             String genero = scanner.nextLine();
-            System.out.println(messages.get("ageBook"));
+            System.out.println(lang.AGEBOOK);
             int edad = scanner.nextInt();
             scanner.nextLine(); // Consumir el salto de línea
 
             bookGester.addBook(titulo, genero, edad);
-            System.out.println(messages.get("goodBook"));
+            System.out.println(lang.GOODBOOK);
         } catch (Exception e) {
-            System.out.println(messages.get("errBook") + e.getMessage());
+            System.out.println(lang.ERRBOOK + e.getMessage());
         }
     }
 
     private void addUser() {
         try {
-            System.out.println(messages.get("addUser"));
+            System.out.println(lang.ADDUSER);
             String name = scanner.nextLine();
-            System.out.println(messages.get("statusUser"));
+            System.out.println(lang.STATUSUSER);
             String status = scanner.nextLine();
             userGester.addUser(name, status);
-            System.out.println(messages.get("goodUser"));
+            System.out.println(lang.GOODUSER);
         } catch (Exception e) {
-            System.out.println(messages.get("errUser") + e.getMessage());
+            System.out.println(lang.ERRUSER + e.getMessage());
         }
     }
 }
