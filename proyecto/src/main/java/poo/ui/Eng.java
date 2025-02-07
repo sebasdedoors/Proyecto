@@ -1,6 +1,12 @@
 package poo.ui;
 
-public class Eng extends Lang{
+    /**
+     * La clase Eng extiende la clase Lang y proporciona mensajes en inglés
+     * para un sistema de gestión de libros y usuarios.
+     */
+
+    public class Eng extends Lang {
+        
     public Eng(){
 
     EXIT = "Thank you for visiting us ;)...";

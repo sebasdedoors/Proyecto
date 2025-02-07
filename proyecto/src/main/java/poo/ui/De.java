@@ -1,6 +1,11 @@
 package poo.ui;
 
-public class De extends Lang{
+    /**
+     * La clase De extiende la clase Lang y proporciona mensajes en alemán
+     * para un sistema de gestión de libros y usuarios.
+     */
+    public class De extends Lang {
+   
     public De(){
 
         EXIT = "Danke für Ihren Besuch ;)...";

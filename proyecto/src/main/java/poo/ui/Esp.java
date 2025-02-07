@@ -1,6 +1,12 @@
 package poo.ui;
 
-public class Esp extends Lang{
+    /**
+     * La clase Esp extiende la clase Lang y proporciona mensajes en español
+     * para un sistema de gestión de libros y usuarios.
+     */
+
+    public class Esp extends Lang {
+    
     public Esp(){
         EXIT = "Gracias por visitarnos ;)...";
         MENU = "\u001B[1;34m"+"|             Menu:             |\n|      1.Agregar un libro.     |\n|    2. Agregar un usuario.    |\n|      3. Mostrar libros.      |\n|     4. Mostrar usuarios.     |\n|           5.Salir.           |"+"\u001B[0m";
