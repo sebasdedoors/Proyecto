@@ -184,8 +184,8 @@ public class CLI {
             System.out.println(lang.ADDUSER);
             String name = scanner.nextLine();
             System.out.println(lang.STATUSUSER);
-            String status = scanner.nextLine();
-            userGester.addUser(name, status);
+            int age = scanner.nextInt();
+            userGester.addUser(name, age);
             System.out.println(lang.GOODUSER);
         } catch (Exception e) {
             System.out.println(lang.ERRUSER + e.getMessage());

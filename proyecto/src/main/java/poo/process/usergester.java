@@ -34,8 +34,8 @@ public class UserGester {
      * @param status Es la variable del estado del usuario.
      */
 
-    public void addUser(String name, String status) {
-        User user = new User(name, status);
+    public void addUser(String name, int age) {
+        User user = new User(name, age);
         gester.add(user);
     }
 

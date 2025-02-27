@@ -1,5 +1,9 @@
 package poo.data;
 
+import java.beans.Transient;
+
+import org.junit.Test;
+
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
  * Esta clase incluye métodos para obtener y establecer estos valores, 
@@ -78,12 +82,16 @@ public class User {
         this.age = age;
     }
 }
-
     /**
      * Establece el estado del usuario. Valida que el estado no esté vacío ni sea nulo.
      * @param status Es la variable del estado del usuario.
      * @throws IllegalArgumentException Si el estado está vacío o es nulo, arroja una excepción.
      */
+
+     /**
+      * Establece a el usuario su esataus dependiendo su edad.
+      * 
+      */
     public String setStatus(int age){
         if (age >=6 && age <= 12){
             if(age == 0){
@@ -106,5 +114,15 @@ public class User {
             return status;
         }
         
+    }
+}
+
+class UserTest { /*Esto va en una clase aparte. */
+    @Test
+    public void testValido(){
+        User user = new User ("Victor", 15);
+        assertEquals("Victor", user.getName());
+        assertEquals("Usuario Teen", user.getStatus());
+        assertEqueals(15, user.getAge());
     }
 }

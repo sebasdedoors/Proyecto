@@ -20,7 +20,7 @@ package poo.ui;
     ERRBOOK = "Error adding the book: ";
     GENERBOOK = "Enter the book's genre, please:";
     AGEBOOK = "Enter the recommended age for the book:";
-    STATUSUSER = "Enter the user's status, please:";
+    STATUSUSER = "Enter the user's age, please:";
     GOODUSER = "The user was successfully added.";
     ERRUSER = "Error adding the user: ";
     USER = "Name: ";

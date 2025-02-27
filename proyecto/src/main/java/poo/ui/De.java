@@ -19,7 +19,7 @@ package poo.ui;
         ERRBOOK = "Fehler beim Hinzufügen des Buches: ";
         GENERBOOK = "Geben Sie das Genre des Buches ein, bitte:";
         AGEBOOK = "Geben Sie das empfohlene Alter für das Buch ein:";
-        STATUSUSER = "Geben Sie den Status des Benutzers ein, bitte:";
+        STATUSUSER = "Geben Sie den Status des Benutzers ein, bitte:"; /*Modificar este para que pida la edad. */
         GOODUSER = "Der Benutzer wurde erfolgreich hinzugefügt.";
         ERRUSER = "Fehler beim Hinzufügen des Benutzers: ";
         USER = "Name: ";
