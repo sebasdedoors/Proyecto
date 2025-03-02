@@ -1,8 +1,5 @@
 package poo.data;
 
-import java.beans.Transient;
-
-import org.junit.Test;
 
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
@@ -114,15 +111,5 @@ public class User {
             return status;
         }
         
-    }
-}
-
-class UserTest { /*Esto va en una clase aparte. */
-    @Test
-    public void testValido(){
-        User user = new User ("Victor", 15);
-        assertEquals("Victor", user.getName());
-        assertEquals("Usuario Teen", user.getStatus());
-        assertEqueals(15, user.getAge());
     }
 }
