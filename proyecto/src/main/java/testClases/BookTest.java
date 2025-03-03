@@ -1,5 +1,5 @@
 package testClases;
-
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import poo.data.Book;
@@ -9,37 +9,50 @@ public class BookTest {
     @Test
     public void testCreacionValida() {
         //* */ Prueba con valores válidos*/
-        Book libro = new Book("El libor troll", "Aventura", 10);
+        Book libro = new Book("El libro", "Aventura", 10);
         System.out.println("El libro troll: " + libro.getTitulo());
         System.out.println("Aventura: " + libro.getGenero());
         System.out.println("Edad: " + libro.getEdad());
     }
         //* Título con números debe lanzar excepción*/
     @Test
-    (expected = IllegalArgumentException.class)
-    public void testTituloInvalido() {
-        
-        new Book("Libro123", "Aventura", 12);
+    public void testTituloConNumeros() {
+        try {
+            new Book("Libro123", "Aventura", 12);
+            fail("Se esperaba una IllegalArgumentException por un título con números");
+        } catch (IllegalArgumentException e) {
+            System.out.println("El titulo no puede contener números ni estar vacio. " + e.getMessage());
+        }
     }
          //* Título vacío debe lanzar excepción*/
     @Test
-    (expected = IllegalArgumentException.class)
     public void testTituloVacio() {
-       
-        new Book("", "Aventura", 12);
+        try {
+            new Book("", "Aventura", 12);
+            fail("Se esperaba una IllegalArgumentException por un título vacío");
+        } catch (IllegalArgumentException e) {
+            System.out.println("El titulo no puede contener números ni estar vacio. " + e.getMessage());
+        }
     }
         //* Género vacío debe lanzar excepción*/
     @Test
-    (expected = IllegalArgumentException.class)
     public void testGeneroVacio() {
-        
-        new Book("Luna de pluton", "", 12);
+        try {
+            new Book("Luna de pluton", "", 12);
+            fail("Se esperaba una IllegalArgumentException por un género vacío");
+        } catch (IllegalArgumentException e) {
+            System.out.println("El campo no puede estar en blanco. " + e.getMessage());
+        }
     }
     //* Edad menor o igual a 0 debe lanzar excepción*/
-    @Test(
-        expected = IllegalArgumentException.class)
+    @Test
     public void testEdadInvalida() {
-        
-        new Book("Luna de pluton", "Aventura", -5);
+        try {
+            new Book("El Quijote", "Aventura", -5);
+            fail("Se esperaba una IllegalArgumentException por una edad negativa");
+        } catch (IllegalArgumentException e) {
+            System.out.println("La edad debe ser mayor a 0. " + e.getMessage());
+        }
     }
 }
+       
