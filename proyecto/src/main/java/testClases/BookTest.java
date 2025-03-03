@@ -8,7 +8,7 @@ public class BookTest {
     //*Test de la clase Book */
     @Test
     public void testCreacionValida() {
-        //* */ Prueba con valores válidos*/
+        //* Prueba con valores válidos*/
         Book libro = new Book("El libro", "Aventura", 10);
         System.out.println("El libro troll: " + libro.getTitulo());
         System.out.println("Aventura: " + libro.getGenero());
@@ -48,7 +48,7 @@ public class BookTest {
     @Test
     public void testEdadInvalida() {
         try {
-            new Book("El Quijote", "Aventura", -5);
+            new Book("El librin", "Aventura", -5);
             fail("Se esperaba una IllegalArgumentException por una edad negativa");
         } catch (IllegalArgumentException e) {
             System.out.println("La edad debe ser mayor a 0. " + e.getMessage());
