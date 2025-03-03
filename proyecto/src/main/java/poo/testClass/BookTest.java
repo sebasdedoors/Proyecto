@@ -1,4 +1,4 @@
-package testClases;
+package poo.testClass;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
@@ -55,4 +55,3 @@ public class BookTest {
         }
     }
 }
-       

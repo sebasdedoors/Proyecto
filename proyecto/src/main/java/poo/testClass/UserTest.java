@@ -1,4 +1,4 @@
-package testClases;
+package poo.testClass;
 import poo.data.User;
 import org.junit.Test;
 
@@ -27,4 +27,3 @@ public class UserTest {
         }
     }
 }
-
