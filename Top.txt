@@ -11,9 +11,9 @@
 +--------------------------------------------------+
 |                  Lista de Honor                  |
 |                                                  |
-| 1- Jorge - 10 Libros Prestados                   |
-| 2- Giselle - 9 Libros Prestados                  |
-| 3- Caleb - 7 Libros Prestados                    |
+| 1- Luis - 10 Libros Prestados                    |
+| 2- Fernando - 9 Libros Prestados                 |
+| 3- Gabriela - 7 Libros Prestados                 |
 |                                                  |
 |                                                  |                                               
 +--------------------------------------------------+
