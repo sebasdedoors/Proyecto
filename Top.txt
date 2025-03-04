@@ -1,0 +1,60 @@
++--------------------------------------------------+
+|                  Lista Negra                     |
+|                                                  |
+| 1- Jorge - 10 Libros Atrasados                   |
+| 2- Giselle - 9 Libros Atrasados                  |
+| 3- Caleb - 7 Libros Atrasados                    |
+|                                                  |
+|                                                  |                                               
++--------------------------------------------------+
+
++--------------------------------------------------+
+|                  Lista de Honor                  |
+|                                                  |
+| 1- Jorge - 10 Libros Prestados                   |
+| 2- Giselle - 9 Libros Prestados                  |
+| 3- Caleb - 7 Libros Prestados                    |
+|                                                  |
+|                                                  |                                               
++--------------------------------------------------+
+
++--------------------------------------------------+
+|                Libros Populares                  |
+|                                                  |
+| 1- El libro Troll - ElRubius                     |
+| 2- Luna de Plutón - DrossRotzank                 |
+| 3- Wigetta - Vegetta777 y Willyrex               |
+| 4- Juego de Tronos - George R. Martin            |
+| 5- El Principito - Antoine de Saint-Exupéry      |
+| 6- Los Juegos del Hambre - Suzanne Collins       |
+| 7- Blancanieves - Los Hermanos Grimm             |
+| 8- El Diario de Greg - Jeff Kinney               |
+| 9- El Diario de Ana Frank - Ana Frank            |
+| 10- The Walking Dead - Robert Kirkman            |
+|                                                  |                                              
++--------------------------------------------------+
+
++--------------------------------------------------+
+|            Libros Menos Populares                |
+|                                                  |
+| 1- The Original of Laura - Vladimir Nabokov      |
+| 2- The Young Visiters - Daisy Ashford            |
+| 3- My Life - Lynsi Snyder                        |
+| 4- Only Revolutions - Mark Z.                    |
+| 5- The Eye of Argon - Jim Theis                  |
+| 6- The Blade Artist - Irvine Welsh               |
+| 7- Vineland - Thomas Pynchon                     |
+| 8- The Man in the High Castle - Philip K. Dick   |
+| 9- The Late George Apley - John P. Marquand      |
+| 10- Tales from the Mall - Ewan Morrison          |
+|                                                  |                                              
++--------------------------------------------------+
+
+
+
+
+                                                  
+
+
+
+

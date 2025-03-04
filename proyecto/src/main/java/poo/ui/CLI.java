@@ -10,6 +10,7 @@ import poo.process.UserGester;
 import poo.data.Book;
 import poo.data.User;
 import poo.ui.Lang;
+import java.io.*;
 
 /**
  * Clase CLI que representa la interfaz de línea de comandos para una biblioteca virtual.
@@ -114,6 +115,9 @@ public class CLI {
                     listUser();
                     break;
                 case 5:
+                    readFileTop(); /*Este metodo lee los tops. */
+                    break;
+                case 6:
                     System.out.println(lang.EXIT);
                     System.exit(0);
                     break;
@@ -189,6 +193,18 @@ public class CLI {
             System.out.println(lang.GOODUSER);
         } catch (Exception e) {
             System.out.println(lang.ERRUSER + e.getMessage());
+        }
+    }
+
+    public void readFileTop(){
+    String fileName = "Top.txt";
+    try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+        String line;
+        while((line = br.readLine()) != null){
+            System.out.println(line);
+        }
+    } catch (IOException e) {
+        System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
 }

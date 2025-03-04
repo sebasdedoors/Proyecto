@@ -1,5 +1,6 @@
 package poo.data;
 
+import java.io.*;
 
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
@@ -112,4 +113,6 @@ public class User {
         }
         
     }
+
+    
 }
