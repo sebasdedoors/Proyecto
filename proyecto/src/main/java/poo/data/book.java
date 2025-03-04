@@ -11,6 +11,7 @@ public class Book {
     private String titulo;
     private String genero;
     private int edad;
+    private int id;
 
     /**
      * Constructor de la clase Book. Crea una nueva instancia de un libro con un título, género y edad.
@@ -22,10 +23,11 @@ public class Book {
      *                                  si el género está vacío o nulo, o si la edad es menor o igual a 0.
      */
 
-    public Book(String titulo, String genero, int edad){
+    public Book(String titulo, String genero, int edad, int id){
         setTitulo(titulo);
         setGenero(genero);
         setEdad(edad);
+        setID(id);
     }
 
     /**
@@ -53,6 +55,10 @@ public class Book {
 
     public int getEdad(){
         return edad;
+    }
+
+    public int getID(){
+        return id;
     }
 
     /**
@@ -95,6 +101,15 @@ public class Book {
             throw new IllegalArgumentException("La edad debe ser mayor a 0.");
         }else{
             this.edad = edad;
+        }
+    }
+
+    public void setID(int id){
+        int sizeId = String.valueOf(id).length();
+        if(sizeId < 4 || sizeId > 4){
+            throw new IllegalArgumentException("El ID debe tener exactamente 4 digitos.");
+        }else{
+            this.id = id;
         }
     }
 }

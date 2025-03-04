@@ -11,6 +11,7 @@ import poo.data.Book;
 import poo.data.User;
 import poo.ui.Lang;
 import java.io.*;
+import poo.process.BaseManager;
 
 /**
  * Clase CLI que representa la interfaz de línea de comandos para una biblioteca virtual.
@@ -115,9 +116,11 @@ public class CLI {
                     listUser();
                     break;
                 case 5:
-                    readFileTop(); /*Este metodo lee los tops. */
+                    readFileTop(); /*Este metodo lee los tops. Hacer un archivo de texto por cada idioma.*/
                     break;
                 case 6:
+                    /*Aquí va otra opción. */
+                case 10:
                     System.out.println(lang.EXIT);
                     System.exit(0);
                     break;
@@ -133,13 +136,14 @@ public class CLI {
      */
 
     private void listBook() {
-        List<Book> gester = bookGester.getBook();
-        if (gester.isEmpty()) {
-            System.out.println(lang.NOBOOKS);
-        } else {
-            for (Book book : gester) {
-                System.out.println(lang.TITLE + book.getTitulo() + lang.GENER + book.getGenero() + lang.AGE + book.getEdad());
+        String fileName = "Book.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String linea;
+            while((linea = br.readLine()) != null){
+                System.out.println(linea);
             }
+        }catch (IOException e){
+            System.out.println("Error al leer el archivo: " + e.getMessage());
         }
     }
     
@@ -148,14 +152,15 @@ public class CLI {
      */
 
     private void listUser() {
-        List<User> gester = userGester.getUser();
-        if (gester.isEmpty()) {
-            System.out.println(lang.NOUSERS);
-        } else {
-            for (User user : gester) {
-                System.out.println(lang.USER + user.getName() + lang.STATUS + user.getStatus());
+        String fileName = "User.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String line;
+            while((line = br.readLine()) != null){
+                System.out.println(line);
             }
-        }
+        } catch (IOException e){
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        } 
     }
     
     /**
@@ -170,9 +175,10 @@ public class CLI {
             String genero = scanner.nextLine();
             System.out.println(lang.AGEBOOK);
             int edad = scanner.nextInt();
-            scanner.nextLine(); 
+            System.out.println("Escriba el ID de 4 digitos del libro:");
+            int id = scanner.nextInt();
             
-            bookGester.addBook(titulo, genero, edad);
+            bookGester.addBook(titulo, genero, edad, id);
             System.out.println(lang.GOODBOOK);
         } catch (Exception e) {
             System.out.println(lang.ERRBOOK + e.getMessage());
@@ -191,6 +197,7 @@ public class CLI {
             int age = scanner.nextInt();
             userGester.addUser(name, age);
             System.out.println(lang.GOODUSER);
+            userGester.addUser(name, age);
         } catch (Exception e) {
             System.out.println(lang.ERRUSER + e.getMessage());
         }
