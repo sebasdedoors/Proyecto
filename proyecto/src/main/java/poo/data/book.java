@@ -56,6 +56,10 @@ public class Book {
     public int getEdad(){
         return edad;
     }
+    /**
+     * Obtiene el ID del libro.
+     * @return El ID del libro.
+     */
 
     public int getID(){
         return id;
