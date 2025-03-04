@@ -1,7 +1,9 @@
 package poo.process;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,8 +18,18 @@ public class BaseManager {
 
     public void makeBorrow(String user, String book, int days){
         if(searchBook(book) && searchUser(user)){
-            borrows.add(user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth());
-            System.out.println("El libro " + book + " ha sido prestado a " + user + " con éxito.");
+            borrows.add(user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo");
+
+            String fileName = "Borrows.txt";
+            String content = "\n" + user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo";
+            try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+                bw.write(content);
+                bw.newLine();
+                System.out.println("El libro " + book + " ha sido prestado a " + user + " con éxito.");
+            }catch (IOException e){
+                System.out.println("Error al agregar el prestamo");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -50,5 +62,16 @@ public class BaseManager {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public void returnBorrows(){
+        try(BufferedReader br = new BufferedReader(new FileReader("Borrows.txt"))){
+            String line;
+            while((line = br.readLine()) != null){
+                System.out.println(line);
+            }
+        }catch (IOException e){
+            System.out.println("Error al leer el archivo " + e.getMessage());
+        }
     }
 }

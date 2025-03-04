@@ -25,6 +25,7 @@ public class CLI {
     private UserGester userGester;
     private String language;
     private Lang lang;
+    private BaseManager baseManager;
     
     /**
      * Constructor de CLI que inicializa los gestores y solicita la selección del idioma.
@@ -116,10 +117,14 @@ public class CLI {
                     listUser();
                     break;
                 case 5:
-                    readFileTop(); /*Este metodo lee los tops. Hacer un archivo de texto por cada idioma.*/
+                    readFileTop(); /*Este metodo lee los tops. Hacer un archivo de texto por cada idioma. (Esto va despues de los lennguajes)*/
                     break;
                 case 6:
-                    /*Aquí va otra opción. */
+                    makeBorrow(); /*Este metodo crea los prestamos */
+                    break;
+                case 7:
+                    returnBorrows(); /*Este metodo lee los prestamos */
+                    break;
                 case 10:
                     System.out.println(lang.EXIT);
                     System.exit(0);
@@ -213,5 +218,41 @@ public class CLI {
     } catch (IOException e) {
         System.out.println("Error al leer el archivo: " + e.getMessage());
         }
+    }
+
+    public void makeBorrow(){
+        int days = 0;
+        System.out.println("Escriba el nombre del usuario: ");
+        String user = scanner.nextLine();
+        System.out.println("Escriba el nombre del libro a prestar: ");
+        String book = scanner.nextLine();
+        System.out.println("Escriba la edad del usuario: ");
+        int age = scanner.nextInt();
+        if(age > 12){
+            System.out.println("Al ser un usuario Jr no puede sacar libros de la biblioteca.");
+        }
+        if(age >= 13 && age <= 17){
+            System.out.println("Al ser usuario Teen solo puede sacar 1 libro por 7 días con la representación de un aval.");
+            System.out.println("Escriba el numero de días a prestar: ");
+            days = scanner.nextInt();
+            if(days > 7){
+                System.out.println("No puede sacar un libro por más de 7 días.");
+            }
+            System.out.println("Escriba el nombre del aval: ");
+            String aval = scanner.nextLine();
+            if(aval.isEmpty() == true){
+                System.out.println("El aval no puede quedar vacio.");
+            }
+        }
+        if(age >= 18){
+            System.out.println("Puede sacar 2 libros por 15 días");
+            System.out.println("Escriba el número de días a prestar:");
+            days = scanner.nextInt();
+        }
+        baseManager.makeBorrow(user, book, days);
+    }
+
+    public void returnBorrows(){
+        baseManager.returnBorrows();
     }
 }
