@@ -26,7 +26,7 @@ public class BookGester {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
             bw.write(content);
         } catch (IOException e){
-            System.out.println("Error al agregar ellibro: " + e.getMessage());
+            System.out.println(lang.ERRBOOK + e.getMessage());
         }
     }
 

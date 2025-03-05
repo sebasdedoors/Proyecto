@@ -26,7 +26,7 @@ public class UserGester {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
             bw.write(content);
         } catch (IOException e){
-            System.out.println("Error al agregar el usuario:" + e.getMessage());
+            System.out.println(lang.ERRBOOK+ e.getMessage());
         }
     }
 

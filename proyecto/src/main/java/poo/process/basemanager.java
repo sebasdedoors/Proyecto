@@ -43,7 +43,7 @@ public class BaseManager {
                 }
             }
         }catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE+ e.getMessage());
             e.printStackTrace();
         }
             return false;
@@ -58,7 +58,7 @@ public class BaseManager {
                 }
             }
         } catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE+ e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -71,7 +71,7 @@ public class BaseManager {
                 System.out.println(line);
             }
         }catch (IOException e){
-            System.out.println("Error al leer el archivo " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE + e.getMessage());
         }
     }
 }

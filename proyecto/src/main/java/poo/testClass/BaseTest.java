@@ -24,7 +24,7 @@ public class BaseTest {
             // Verificar que se escribió en el archivo de préstamos
             assertTrue(buscarEnArchivo(BORROW_FILE, "Juan Perez; El Quijote"));
         } catch (Exception e) {
-            fail("Error en la prueba de préstamo: " + e.getMessage());
+            fail(lang.ERRORLEND + e.getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ public class BaseTest {
             // No debe existir el préstamo
             assertFalse(buscarEnArchivo(BORROW_FILE, "Juan Perez; Libro Fantasma"));
         } catch (Exception e) {
-            fail("Error en la prueba de libro inexistente: " + e.getMessage());
+            fail(lang.ERRORBOOKEXIST + e.getMessage());
         }
     }
 
@@ -56,7 +56,7 @@ public class BaseTest {
             // No debe existir el préstamo
             assertFalse(buscarEnArchivo(BORROW_FILE, "Usuario Fantasma; El Quijote"));
         } catch (Exception e) {
-            fail("Error en la prueba de usuario inexistente: " + e.getMessage());
+            fail(lang.ERRORUSEREXIST + e.getMessage());
         }
     }
 

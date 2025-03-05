@@ -21,7 +21,7 @@ public class BookTest {
             new Book("Libro123", "Aventura", 12, 4321);
             fail("Se esperaba una IllegalArgumentException por un título con números");
         } catch (IllegalArgumentException e) {
-            System.out.println("El titulo no puede contener números ni estar vacio. " + e.getMessage());
+            System.out.println(lang.NULLTITLE + e.getMessage());
         }
     }
          //* Título vacío debe lanzar excepción*/
@@ -31,7 +31,7 @@ public class BookTest {
             new Book("", "Aventura", 12,1122);
             fail("Se esperaba una IllegalArgumentException por un título vacío");
         } catch (IllegalArgumentException e) {
-            System.out.println("El titulo no puede contener números ni estar vacio. " + e.getMessage());
+            System.out.println(lang.NULLTITLE + e.getMessage());
         }
     }
         //* Género vacío debe lanzar excepción*/
@@ -41,7 +41,7 @@ public class BookTest {
             new Book("Luna de pluton", "", 12,2211);
             fail("Se esperaba una IllegalArgumentException por un género vacío");
         } catch (IllegalArgumentException e) {
-            System.out.println("El campo no puede estar en blanco. " + e.getMessage());
+            System.out.println(lang.NULLGENRE+ e.getMessage());
         }
     }
     //* Edad menor o igual a 0 debe lanzar excepción*/
@@ -51,7 +51,7 @@ public class BookTest {
             new Book("El librin", "Aventura", -5,1111);
             fail("Se esperaba una IllegalArgumentException por una edad negativa");
         } catch (IllegalArgumentException e) {
-            System.out.println("La edad debe ser mayor a 0. " + e.getMessage());
+            System.out.println(lang.ZEROAGE + e.getMessage());
         }
     }
 }

@@ -11,7 +11,7 @@ public class UserTest {
             System.out.println("Estado: " + user.getStatus());
             System.out.println("Edad: " + user.getAge());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error al crear el usuario: " + e.getMessage());
+            System.out.println(lang.CREATEERRORUSER + e.getMessage());
         }
     }
     
@@ -23,7 +23,7 @@ public class UserTest {
             System.out.println("Estado: " + user.getStatus());
             System.out.println("Edad: " + user.getAge());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error al crear el usuario: " + e.getMessage());
+            System.out.println(lang.CREATEERRORUSER + e.getMessage());
         }
     }
 }
