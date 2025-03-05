@@ -16,10 +16,10 @@ package poo.ui;
         NOBOOKS = "Es gibt keine Bücher in der Liste.";
         NOUSERS = "Es gibt keine Benutzer in der Liste.";
         GOODBOOK = "Das Buch wurde erfolgreich hinzugefügt.";
-        ERRBOOK = "Fehler beim Hinzufügen des Buches: ";
-        GENERBOOK = "Geben Sie das Genre des Buches ein, bitte:";
+        ERRORARCHIVE = "Fehler beim Lesen der Datei: ";
+        GENERBOOK = "Geben Sie bitte das Genre des Buches ein:";
         AGEBOOK = "Geben Sie das empfohlene Alter für das Buch ein:";
-        STATUSUSER = "Geben Sie den Status des Benutzers ein, bitte:"; /*Modificar este para que pida la edad. */
+        STATUSUSER = "Geben Sie bitte das Alter des Benutzers ein:";
         GOODUSER = "Der Benutzer wurde erfolgreich hinzugefügt.";
         ERRUSER = "Fehler beim Hinzufügen des Benutzers: ";
         USER = "Name: ";
@@ -27,6 +27,17 @@ package poo.ui;
         TITLE = "Titel: ";
         GENER = "Genre: ";
         AGE = "Empfohlenes Alter: ";
+        REQUESTUSER = "Geben Sie den Namen des Benutzers ein: ";
+        REQUESTBOOK = "Geben Sie den Namen des auszuleihenden Buches ein: ";
+        REQUESTAGE = "Geben Sie das Alter des Benutzers ein: ";
+        UNDERAGE = "Als Junior-Benutzer können Sie keine Bücher aus der Bibliothek ausleihen.";
+        MIDDLEAGE = "Als Teen-Benutzer können Sie nur ein Buch für 7 Tage mit der Genehmigung eines Bürgen ausleihen.";
+        LENDDAYS = "Geben Sie die Anzahl der Ausleihtage ein: ";
+        EXCEEDDAYS = "Sie können ein Buch nicht länger als 7 Tage ausleihen.";
+        AVALNAME = "Geben Sie den Namen des Bürgen ein: ";
+        NULLAVALNAME = "Der Name des Bürgen darf nicht leer sein.";
+        ONLYTWOBOOKS = "Sie können 2 Bücher für 15 Tage ausleihen.";
+        TIMELEND = "Geben Sie die Anzahl der Ausleihtage ein:";
         
     
     }
