@@ -11,30 +11,32 @@ import java.util.List;
 
 import poo.data.Book;
 import poo.data.User;
+import poo.ui.Lang;
 
 public class BaseManager {
     private List<String> borrows = new ArrayList<>();
     private LocalDateTime today = LocalDateTime.now();
+    private Lang lang;
 
     public void makeBorrow(String user, String book, int days){
         if(searchBook(book) && searchUser(user)){
-            borrows.add(user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo");
+            borrows.add(user + "; " + book + ";" + lang.DESDE + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + "." + lang.HASTA +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + ";" +  lang.ACTIVEES);
 
             String fileName = "Borrows.txt";
-            String content = "\n" + user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo";
+            String content = "\n" + user + "; " + book + ";" + lang.DESDE  + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + "." + lang.HASTA +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + ";" +  lang.ACTIVEES;
             try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
                 bw.write(content);
                 bw.newLine();
-                System.out.println("El libro " + book + " ha sido prestado a " + user + " con éxito.");
+                System.out.println(lang.THEBOOK + book + lang.WASLEND + user + lang.WITHSUCCESS);
             }catch (IOException e){
-                System.out.println("Error al agregar el prestamo");
+                System.out.println(lang.ERRORARCHIVE);
                 e.printStackTrace();
             }
         }
     }
 
 
-    private static boolean searchBook(String book){
+    private boolean searchBook(String book){
         try(BufferedReader br = new BufferedReader(new FileReader("Book.txt"))){
             String line;
             while((line = br.readLine()) != null){
@@ -43,13 +45,13 @@ public class BaseManager {
                 }
             }
         }catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE+ e.getMessage());
             e.printStackTrace();
         }
             return false;
     }
 
-    private static boolean searchUser(String user){
+    private boolean searchUser(String user){
         try(BufferedReader br = new BufferedReader(new FileReader("User.txt"))){
             String line;
             while((line = br.readLine()) != null){
@@ -58,20 +60,23 @@ public class BaseManager {
                 }
             }
         } catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE+ e.getMessage());
             e.printStackTrace();
         }
         return false;
     }
 
-    public void returnBorrows(){
+    public String returnBorrows(){
         try(BufferedReader br = new BufferedReader(new FileReader("Borrows.txt"))){
             String line;
             while((line = br.readLine()) != null){
                 System.out.println(line);
             }
+            return line;
+
         }catch (IOException e){
-            System.out.println("Error al leer el archivo " + e.getMessage());
+            System.out.println(lang.ERRORREADARCHIVE + e.getMessage());
+            return null;
         }
     }
 }

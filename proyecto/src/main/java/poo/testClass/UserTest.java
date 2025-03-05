@@ -1,8 +1,12 @@
 package poo.testClass;
 import poo.data.User;
+import poo.ui.Lang;
+
 import org.junit.Test;
 
 public class UserTest {
+    private Lang lang;
+
     @Test
     public void testValido() {
         try {
@@ -11,7 +15,7 @@ public class UserTest {
             System.out.println("Estado: " + user.getStatus());
             System.out.println("Edad: " + user.getAge());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error al crear el usuario: " + e.getMessage());
+            System.out.println(lang.CREATEERRORUSER + e.getMessage());
         }
     }
     
@@ -23,7 +27,7 @@ public class UserTest {
             System.out.println("Estado: " + user.getStatus());
             System.out.println("Edad: " + user.getAge());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error al crear el usuario: " + e.getMessage());
+            System.out.println(lang.CREATEERRORUSER + e.getMessage());
         }
     }
 }

@@ -1,5 +1,6 @@
 package poo.process;
 import poo.data.Book;
+import poo.ui.Lang;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,6 +11,7 @@ import java.io.IOException;
  */
 
 public class BookGester {
+    private Lang lang;
 
     /**
      * Agrega un nuevo libro a la lista de libros gestionados.
@@ -26,7 +28,7 @@ public class BookGester {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
             bw.write(content);
         } catch (IOException e){
-            System.out.println("Error al agregar ellibro: " + e.getMessage());
+            System.out.println(lang.ERRBOOK + e.getMessage());
         }
     }
 

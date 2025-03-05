@@ -1,5 +1,7 @@
 package poo.data;
 
+import poo.ui.Lang;
+
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
  * Esta clase incluye métodos para obtener y establecer estos valores, 
@@ -11,6 +13,7 @@ public class User {
     private String name;
     private String status;
     private int age;
+    private Lang lang;
 
     /**
      * Constructor de la clase User. Crea una nueva instancia de un usuario con un nombre y estado.
@@ -60,7 +63,7 @@ public class User {
 
     public void setName(String name){
         if(name == null || name.isEmpty()){
-            throw new IllegalArgumentException("El espacio no debe de estar vacio.");
+            throw new IllegalArgumentException(lang.NONULL);
         }else{
             this.name = name;
         }
@@ -73,7 +76,7 @@ public class User {
      */
     public void setAge(int age){
         if (age <= 0){
-            throw new IllegalArgumentException("La edad no puede ser menor a 0. ");
+            throw new IllegalArgumentException(lang.UPONZERO);
         } else {
         this.age = age;
     }
@@ -91,7 +94,7 @@ public class User {
     public String setStatus(int age){
         if (age >=6 && age <= 12){
             if(age == 0){
-                throw new IllegalArgumentException("La edad no puede ser 0.");
+                throw new IllegalArgumentException(lang.NOZEROAGE);
             }else{
                 this.status = "Usuario Jr";
                 return status;
@@ -99,7 +102,7 @@ public class User {
         }
         if (age >= 13 && age <= 17){
             if(age == 0){
-                throw new IllegalArgumentException("La edad no puede ser 0.");
+                throw new IllegalArgumentException(lang.NOZEROAGE);
             }else{
                 this.status = "Usuario Teen";
                 return status;

@@ -1,6 +1,7 @@
 package poo.process;
 
 import poo.data.User;
+import poo.ui.Lang;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,6 +12,7 @@ import java.io.IOException;
  */
 
 public class UserGester {
+    private Lang lang;
 
     /**
      * Agrega un nuevo usuario a la lista de usuarios gestionados.
@@ -26,7 +28,7 @@ public class UserGester {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
             bw.write(content);
         } catch (IOException e){
-            System.out.println("Error al agregar el usuario:" + e.getMessage());
+            System.out.println(lang.ERRBOOK+ e.getMessage());
         }
     }
 
