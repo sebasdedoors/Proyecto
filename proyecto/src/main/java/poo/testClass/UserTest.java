@@ -1,8 +1,12 @@
 package poo.testClass;
 import poo.data.User;
+import poo.ui.Lang;
+
 import org.junit.Test;
 
 public class UserTest {
+    private Lang lang;
+
     @Test
     public void testValido() {
         try {

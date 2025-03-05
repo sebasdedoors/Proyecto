@@ -16,6 +16,7 @@ import poo.ui.Lang;
 public class BaseManager {
     private List<String> borrows = new ArrayList<>();
     private LocalDateTime today = LocalDateTime.now();
+    private Lang lang;
 
     public void makeBorrow(String user, String book, int days){
         if(searchBook(book) && searchUser(user)){
@@ -35,7 +36,7 @@ public class BaseManager {
     }
 
 
-    private static boolean searchBook(String book){
+    private boolean searchBook(String book){
         try(BufferedReader br = new BufferedReader(new FileReader("Book.txt"))){
             String line;
             while((line = br.readLine()) != null){
@@ -50,7 +51,7 @@ public class BaseManager {
             return false;
     }
 
-    private static boolean searchUser(String user){
+    private boolean searchUser(String user){
         try(BufferedReader br = new BufferedReader(new FileReader("User.txt"))){
             String line;
             while((line = br.readLine()) != null){
@@ -65,14 +66,17 @@ public class BaseManager {
         return false;
     }
 
-    public void returnBorrows(){
+    public String returnBorrows(){
         try(BufferedReader br = new BufferedReader(new FileReader("Borrows.txt"))){
             String line;
             while((line = br.readLine()) != null){
                 System.out.println(line);
             }
+            return line;
+
         }catch (IOException e){
             System.out.println(lang.ERRORREADARCHIVE + e.getMessage());
+            return null;
         }
     }
 }

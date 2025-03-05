@@ -1,5 +1,6 @@
 package poo.process;
 import poo.data.Book;
+import poo.ui.Lang;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,6 +11,7 @@ import java.io.IOException;
  */
 
 public class BookGester {
+    private Lang lang;
 
     /**
      * Agrega un nuevo libro a la lista de libros gestionados.

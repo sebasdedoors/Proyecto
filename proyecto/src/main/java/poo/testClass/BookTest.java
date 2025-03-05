@@ -3,8 +3,11 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import poo.data.Book;
+import poo.ui.Lang;
 
 public class BookTest {
+    private Lang lang;
+
     //*Test de la clase Book */
     @Test
     public void testCreacionValida() {

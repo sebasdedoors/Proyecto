@@ -125,7 +125,7 @@ public class CLI {
                 case 7:
                     returnBorrows(); /*Este metodo lee los prestamos */
                     break;
-                case 10:
+                case 8:
                     System.out.println(lang.EXIT);
                     System.exit(0);
                     break;
@@ -228,7 +228,7 @@ public class CLI {
         String book = scanner.nextLine();
         System.out.println(lang.REQUESTAGE);
         int age = scanner.nextInt();
-        if(age > 12){
+        if(age < 12){
             System.out.println(lang.UNDERAGE);
         }
         if(age >= 13 && age <= 17){

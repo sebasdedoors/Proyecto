@@ -3,6 +3,7 @@ package poo.testClass;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import poo.process.BaseManager;
+import poo.ui.Lang;
 
 import java.io.*;
 
@@ -10,6 +11,7 @@ public class BaseTest {
     private final String BOOK_FILE = "Book.txt";
     private final String USER_FILE = "User.txt";
     private final String BORROW_FILE = "Borrows.txt";
+    private Lang lang;
 
     @Test
     public void testValid() {

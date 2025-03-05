@@ -1,5 +1,7 @@
 package poo.data;
 
+import poo.ui.Lang;
+
 /**
  * La clase Book representa un libro con un título, un género y una edad recomendada.
  * Esta clase incluye métodos para obtener y establecer estos valores, así como validaciones
@@ -12,6 +14,7 @@ public class Book {
     private String genero;
     private int edad;
     private int id;
+    private Lang lang;
 
     /**
      * Constructor de la clase Book. Crea una nueva instancia de un libro con un título, género y edad.

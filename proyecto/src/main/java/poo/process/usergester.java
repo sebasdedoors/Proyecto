@@ -1,6 +1,7 @@
 package poo.process;
 
 import poo.data.User;
+import poo.ui.Lang;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,6 +12,7 @@ import java.io.IOException;
  */
 
 public class UserGester {
+    private Lang lang;
 
     /**
      * Agrega un nuevo usuario a la lista de usuarios gestionados.

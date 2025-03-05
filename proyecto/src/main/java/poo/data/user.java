@@ -1,5 +1,7 @@
 package poo.data;
 
+import poo.ui.Lang;
+
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
  * Esta clase incluye métodos para obtener y establecer estos valores, 
@@ -11,6 +13,7 @@ public class User {
     private String name;
     private String status;
     private int age;
+    private Lang lang;
 
     /**
      * Constructor de la clase User. Crea una nueva instancia de un usuario con un nombre y estado.
