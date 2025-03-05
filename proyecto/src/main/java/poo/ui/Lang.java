@@ -41,6 +41,7 @@ public class Lang {
     protected String NOUSERS;
     protected String GOODBOOK;
     protected String ERRBOOK;
+    protected String ERRORARCHIVE;
     protected String GENERBOOK;
     protected String AGEBOOK;
     protected String STATUSUSER;
@@ -51,4 +52,15 @@ public class Lang {
     protected String TITLE;
     protected String GENER;
     protected String AGE;
+    protected String REQUESTUSER;
+    protected String REQUESTBOOK;
+    protected String REQUESTAGE;
+    protected String UNDERAGE;
+    protected String MIDDLEAGE;
+    protected String LENDDAYS;
+    protected String EXCEEDDAYS;
+    protected String AVALNAME;
+    protected String NULLAVALNAME;
+    protected String ONLYTWOBOOKS;
+    protected String TIMELEND;
 }

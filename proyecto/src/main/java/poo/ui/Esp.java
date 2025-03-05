@@ -17,6 +17,7 @@ package poo.ui;
         NOUSERS = "No hay usuarios en la lista.";
         GOODBOOK = "El libro agregado excistosamente.";
         ERRBOOK = "Error al agregar el libro: ";
+        ERRORARCHIVE = "Error al leer el archivo: ";
         GENERBOOK = "Escriba el genero el libro por favor:";
         AGEBOOK = "Escribe la edad recomendada del libro:";
         STATUSUSER = "Escriba la edad del usuario por favor:";
@@ -27,6 +28,17 @@ package poo.ui;
         TITLE = "Titulo: ";
         GENER = "Genero: ";
         AGE = "Edad recomandada: ";
+        REQUESTUSER = "Escriba el nombre del usuario: ";
+        REQUESTBOOK = "Escriba el nombre del libro a prestar: ";
+        REQUESTAGE = "Escriba la edad del usuario: ";
+        UNDERAGE = "Al ser un usuario Jr no puede sacar libros de la biblioteca.";
+        MIDDLEAGE = "Al ser un usuario Teen solo puede sacar 1 libro por 7 días con la representación de un aval.";
+        LENDDAYS = "Escriba el número de días a prestar: ";
+        EXCEEDDAYS = "No puede sacar un libro por más de 7 días.";
+        AVALNAME = "Escriba el nombre del aval: ";
+        NULLAVALNAME = "El aval no puede quedar vacio.";
+        ONLYTWOBOOKS = "Puede sacar 2 libros por 15 días.";
+        TIMELEND = "Escriba el número de días a prestar:";
     }
 
 }

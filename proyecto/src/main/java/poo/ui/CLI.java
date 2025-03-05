@@ -148,7 +148,7 @@ public class CLI {
                 System.out.println(linea);
             }
         }catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println( lang.ERRORARCHIVE + e.getMessage());
         }
     }
     
@@ -164,7 +164,7 @@ public class CLI {
                 System.out.println(line);
             }
         } catch (IOException e){
-            System.out.println("Error al leer el archivo: " + e.getMessage());
+            System.out.println( lang.ERRORARCHIVE + e.getMessage());
         } 
     }
     
@@ -216,37 +216,37 @@ public class CLI {
             System.out.println(line);
         }
     } catch (IOException e) {
-        System.out.println("Error al leer el archivo: " + e.getMessage());
+        System.out.println(lang.ERRORARCHIVE + e.getMessage());
         }
     }
 
     public void makeBorrow(){
         int days = 0;
-        System.out.println("Escriba el nombre del usuario: ");
+        System.out.println(lang.REQUESTUSER);
         String user = scanner.nextLine();
-        System.out.println("Escriba el nombre del libro a prestar: ");
+        System.out.println(lang.REQUESTBOOK);
         String book = scanner.nextLine();
-        System.out.println("Escriba la edad del usuario: ");
+        System.out.println(lang.REQUESTAGE);
         int age = scanner.nextInt();
         if(age > 12){
-            System.out.println("Al ser un usuario Jr no puede sacar libros de la biblioteca.");
+            System.out.println(lang.UNDERAGE);
         }
         if(age >= 13 && age <= 17){
-            System.out.println("Al ser usuario Teen solo puede sacar 1 libro por 7 días con la representación de un aval.");
-            System.out.println("Escriba el numero de días a prestar: ");
+            System.out.println(lang.MIDDLEAGE);
+            System.out.println(lang.LENDDAYS);
             days = scanner.nextInt();
             if(days > 7){
-                System.out.println("No puede sacar un libro por más de 7 días.");
+                System.out.println(lang.EXCEEDDAYS);
             }
-            System.out.println("Escriba el nombre del aval: ");
+            System.out.println(lang.AVALNAME);
             String aval = scanner.nextLine();
             if(aval.isEmpty() == true){
-                System.out.println("El aval no puede quedar vacio.");
+                System.out.println(lang.NULLAVALNAME);
             }
         }
         if(age >= 18){
-            System.out.println("Puede sacar 2 libros por 15 días");
-            System.out.println("Escriba el número de días a prestar:");
+            System.out.println(lang.ONLYTWOBOOKS);
+            System.out.println(lang.TIMELEND);
             days = scanner.nextInt();
         }
         baseManager.makeBorrow(user, book, days);
