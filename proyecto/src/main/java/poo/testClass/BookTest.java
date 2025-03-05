@@ -1,5 +1,7 @@
 package poo.testClass;
-import static org.junit.Assert.fail;
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import poo.data.Book;
@@ -8,53 +10,70 @@ import poo.ui.Lang;
 public class BookTest {
     private Lang lang;
 
-    //*Test de la clase Book */
     @Test
-    public void testCreacionValida() {
-        //* Prueba con valores válidos*/
-        Book libro = new Book("El libro", "Aventura", 10, 1234);
-        System.out.println("El libro troll: " + libro.getTitulo());
-        System.out.println("Aventura: " + libro.getGenero());
-        System.out.println("Edad: " + libro.getEdad());
+    public void testBookCreation(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        assertEquals("El libro Troll", book.getTitulo());
+        assertEquals("Comedia", book.getGenero());
+        assertEquals(18, book.getEdad());
+        assertEquals(1234, book.getID());
     }
-        //* Título con números debe lanzar excepción*/
+
     @Test
-    public void testTituloConNumeros() {
-        try {
-            new Book("Libro123", "Aventura", 12, 4321);
-            fail("Se esperaba una IllegalArgumentException por un título con números");
-        } catch (IllegalArgumentException e) {
-            System.out.println(lang.NULLTITLE + e.getMessage());
-        }
+    public void testSetTituloValid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        book.setTitulo("El libro Troll 2");;
+        assertEquals("El libro Troll 2", book.getTitulo());
     }
-         //* Título vacío debe lanzar excepción*/
+
     @Test
-    public void testTituloVacio() {
-        try {
-            new Book("", "Aventura", 12,1122);
-            fail("Se esperaba una IllegalArgumentException por un título vacío");
-        } catch (IllegalArgumentException e) {
-            System.out.println(lang.NULLTITLE + e.getMessage());
-        }
+    public void testSetTiutloInvalid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        assertThrows(IllegalArgumentException.class, () -> {
+            book.setTitulo("");
+    });
     }
-        //* Género vacío debe lanzar excepción*/
+
     @Test
-    public void testGeneroVacio() {
-        try {
-            new Book("Luna de pluton", "", 12,2211);
-            fail("Se esperaba una IllegalArgumentException por un género vacío");
-        } catch (IllegalArgumentException e) {
-            System.out.println(lang.NULLGENRE+ e.getMessage());
-        }
+    public void testSetGeneroValid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        book.setGenero("Terror");
+        assertEquals("Terror", book.getGenero());
     }
-    //* Edad menor o igual a 0 debe lanzar excepción*/
+
     @Test
-    public void testEdadInvalida() {
-        try {
-            new Book("El librin", "Aventura", -5,1111);
-            fail("Se esperaba una IllegalArgumentException por una edad negativa");
-        } catch (IllegalArgumentException e) {
-            System.out.println(lang.ZEROAGE + e.getMessage());
-        }
+    public void testSetGeneroInvalid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        assertThrows(IllegalArgumentException.class, () -> {
+            book.setGenero("");
+    });
+    }
+
+    @Test
+    public void testSetAgeValid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        book.setEdad(18);
+        assertEquals(18, book.getEdad());
+    }
+
+    public void testSetAgeInvalid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        assertThrows(IllegalArgumentException.class, () -> {
+            book.setEdad(0);
+        });
+    }
+
+    @Test
+    public void testSetIdValid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        book.setID(1234);
+        assertEquals(1234, book.getID());
+    }
+
+    public void testSetIdInvalid(){
+        Book book = new Book("El libro Troll", "Comedia", 18, 1234);
+        assertThrows(IllegalArgumentException.class, () -> {
+            book.setID(0);
+        });
     }
 }
