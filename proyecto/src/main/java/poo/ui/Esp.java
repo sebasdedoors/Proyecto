@@ -9,7 +9,7 @@ package poo.ui;
     
     public Esp(){
         EXIT = "Gracias por visitarnos ;)...";
-        MENU = "\u001B[1;34m"+"|             Menu:            |\n|      1.Agregar un libro.     |\n|    2. Agregar un usuario.    |\n|      3. Mostrar libros.      |\n|     4. Mostrar usuarios.     |\n|           5. Tops.           |\n|      6.   |\n|         7. Salir.            |"+"\u001B[0m";
+        MENU = "\u001B[1;34m"+"|             Menu:            |\n|      1.Agregar un libro.     |\n|    2. Agregar un usuario.    |\n|      3. Mostrar libros.      |\n|     4. Mostrar usuarios.     |\n|           5. Tops.           |\n|       6. Prestar libro       |\n|      7. Regresar libro       |\n|      7. Regresar libro       |\n|         8. Salir.            |"+"\u001B[0m";
         INVALID = "Opción no valida, por favor intente de nuevo.";
         ADDBOOK = "Escriba el nombre del libro a agregar:";
         ADDUSER = "Escribe el nombre del usuario por favor:";

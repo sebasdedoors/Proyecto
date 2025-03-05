@@ -9,7 +9,7 @@ package poo.ui;
     public De(){
 
         EXIT = "Danke für Ihren Besuch ;)...";
-        MENU = "\u001B[1;31m"+"|             Menü:             |\n|    1. Ein Buch hinzufügen.   |\n| 2. Einen Benutzer hinzufügen.|\n|      3. Bücher anzeigen.     |\n|     4. Benutzer anzeigen.    |\n|          5. Beenden.         |"+"\u001B[0m";
+        MENU = "\u001B[1;31m"+"|             Menü:             |\n|    1. Ein Buch hinzufügen.    |\n| 2. Einen Benutzer hinzufügen. |\n|      3. Bücher anzeigen.      |\n|     4. Benutzer anzeigen.     |\n|         5. Toplisten          |\n|       6. Buch ausleihen       |\n|      7.  Buch zurückgeben     |\n|          8. Beenden.          |"+"\u001B[0m";
         INVALID = "Ungültige Option, bitte versuchen Sie es erneut.";
         ADDBOOK = "Geben Sie den Namen des Buches ein, das hinzugefügt werden soll:";
         ADDUSER = "Geben Sie den Namen des Benutzers ein, bitte:";

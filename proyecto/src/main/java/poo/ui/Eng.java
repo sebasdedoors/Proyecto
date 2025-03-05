@@ -10,7 +10,7 @@ package poo.ui;
     public Eng(){
 
     EXIT = "Thank you for visiting us ;)...";
-    MENU = "\u001B[1;34m"+"|             Menu:             |\n|      1. Add a book.          |\n|    2. Add a user.            |\n|      3. Show books.          |\n|     4. Show users.           |\n|           5. Exit.           |"+"\u001B[0m";
+    MENU = "\u001B[1;34m"+"|             Menu:             |\n|         1. Add a book.        |\n|         2. Add a user.        |\n|         3. Show books.        |\n|         4. Show users.        |\n|            5. Tops.           |\n|         6. Lend Book.         |\n|        7. Return Book.        |\n|            8. Exit.           |"+"\u001B[0m";
     INVALID = "Invalid option, please try again.";
     ADDBOOK = "Enter the name of the book to add:";
     ADDUSER = "Enter the user's name, please:";
