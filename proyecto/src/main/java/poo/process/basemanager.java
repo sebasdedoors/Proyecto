@@ -11,6 +11,7 @@ import java.util.List;
 
 import poo.data.Book;
 import poo.data.User;
+import poo.ui.Lang;
 
 public class BaseManager {
     private List<String> borrows = new ArrayList<>();
@@ -18,16 +19,16 @@ public class BaseManager {
 
     public void makeBorrow(String user, String book, int days){
         if(searchBook(book) && searchUser(user)){
-            borrows.add(user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo");
+            borrows.add(user + "; " + book + ";" + lang.DESDE + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + "." + lang.HASTA +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + ";" +  lang.ACTIVEES);
 
             String fileName = "Borrows.txt";
-            String content = "\n" + user + "; " + book + "; Desde: " + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + ". Hasta: " +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + "; Estado: Activo";
+            String content = "\n" + user + "; " + book + ";" + lang.DESDE  + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + "." + lang.HASTA +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + ";" +  lang.ACTIVEES;
             try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
                 bw.write(content);
                 bw.newLine();
-                System.out.println("El libro " + book + " ha sido prestado a " + user + " con éxito.");
+                System.out.println(lang.THEBOOK + book + lang.WASLEND + user + lang.WITHSUCCESS);
             }catch (IOException e){
-                System.out.println("Error al agregar el prestamo");
+                System.out.println(lang.ERRORARCHIVE);
                 e.printStackTrace();
             }
         }

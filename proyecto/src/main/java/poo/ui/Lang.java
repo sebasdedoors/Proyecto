@@ -63,4 +63,25 @@ public class Lang {
     protected String NULLAVALNAME;
     protected String ONLYTWOBOOKS;
     protected String TIMELEND;
+    protected String CREATEERRORUSER;
+    protected String ZEROAGE;
+    protected String NULLGENRE;
+    protected String NULLTITLE;
+    protected String ERRORUSEREXIST;
+    protected String ERRORBOOKEXIST;
+    protected String ERRORLEND;
+    protected String ERRORREADARCHIVE;
+    protected String NOUNDERZERO;
+    protected String NOZEROAGE;
+    protected String UPONZERO;
+    protected String NONULL;
+    protected String ONLYFOURDIGITS;
+    protected String ERRORADDLEND;
+    protected String THEBOOK;
+    protected String WASLEND;
+    protected String WITHSUCCESS;
+    protected String DESDE;
+    protected String HASTA;
+    protected String ACTIVEES;
+
 }

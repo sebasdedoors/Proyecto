@@ -39,6 +39,27 @@ package poo.ui;
         NULLAVALNAME = "El aval no puede quedar vacio.";
         ONLYTWOBOOKS = "Puede sacar 2 libros por 15 días.";
         TIMELEND = "Escriba el número de días a prestar:";
+        CREATEERRORUSER = "Error al crear el usuario.";
+        ZEROAGE = "La edad debe ser mayor a 0. ";
+        NULLGENRE = "El campo no puede estar en blanco.";
+        NULLTITLE = "El titulo no puede contener números ni estar vacio. ";
+        ERRORUSEREXIST = "Error en la prueba de usuario inexistente: ";
+        ERRORBOOKEXIST = "Error en la prueba de libro inexistente: ";
+        ERRORLEND = "Error en la prueba de préstamo: ";
+        ERRORREADARCHIVE = "Error al leer el archivo: ";
+        NOUNDERZERO = "La edad debe ser mayor a 0.";    
+        UPONZERO = "La edad no puede ser menor a 0. ";
+        NONULL = "El campo no puede estar vacio.";
+        NOZEROAGE = "La edad no puede ser 0.";
+        ONLYFOURDIGITS = "El ID debe tener exactamente 4 digitos.";
+        ERRORADDLEND = "Error al agregar el prestamo";
+        THEBOOK = "El libro: ";
+        WASLEND = " fue prestado a ";
+        WITHSUCCESS = " con exito.";
+        DESDE = " desde ";
+        HASTA = " hasta ";
+        ACTIVEES = "Estado activo.";
+    
     }
 
 }
