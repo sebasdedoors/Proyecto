@@ -1,5 +1,7 @@
 package poo.data;
 
+import poo.ui.Lang;
+
 /**
  * La clase User representa a un usuario con un nombre y un estado. 
  * Esta clase incluye métodos para obtener y establecer estos valores, 
@@ -10,17 +12,21 @@ public class User {
     
     private String name;
     private String status;
+    private int age;
+    private Lang lang;
 
     /**
      * Constructor de la clase User. Crea una nueva instancia de un usuario con un nombre y estado.
      * @param name El nombre del usuario.
      * @param status El estado del usuario.
+     * @param age La edad del usuario.
      * @throws IllegalArgumentException Si el nombre o el estado están vacíos o son nulos, arroja una excepción.
      */
 
-    public User(String name, String status){
+    public User(String name, int age){
         setName(name);
-        setStatus(status);
+        setStatus(age);
+        setAge(age);
     }
 
     /**
@@ -42,6 +48,14 @@ public class User {
     }
 
     /**
+     * Obtiene la edad del usuario.
+     * @return La edad del usuario.
+     */
+    public int getAge(){
+        return age;
+    }
+
+    /**
      * Establece el nombre del usuario. Valida que el nombre no esté vacío ni sea nulo.
      * @param name Es la variable del nombre del usuario.
      * @throws IllegalArgumentException Si el nombre está vacío o es nulo, arroja una excepción.
@@ -49,23 +63,57 @@ public class User {
 
     public void setName(String name){
         if(name == null || name.isEmpty()){
-            throw new IllegalArgumentException("El espacio no debe de estar vacio.");
+            throw new IllegalArgumentException(lang.NONULL);
         }else{
             this.name = name;
         }
     }
 
     /**
+     * Establece la edad del usuario. Valida que la edad no sea menor o igual a 0.
+     * @param age Es la variable de la edad del usuraio.
+     * @throws IllegalArgumentException Si la edad es menor o igual a 0, arroja una excepción.
+     */
+    public void setAge(int age){
+        if (age <= 0){
+            throw new IllegalArgumentException(lang.UPONZERO);
+        } else {
+        this.age = age;
+    }
+}
+    /**
      * Establece el estado del usuario. Valida que el estado no esté vacío ni sea nulo.
      * @param status Es la variable del estado del usuario.
      * @throws IllegalArgumentException Si el estado está vacío o es nulo, arroja una excepción.
      */
 
-    public void setStatus(String status){
-        if(status == null || status.isEmpty()){
-            throw new IllegalArgumentException("No puede quedarse vacio este espacio.");
-        }else{
-            this.status = status;
+     /**
+      * Establece a el usuario su esataus dependiendo su edad.
+      * 
+      */
+    public String setStatus(int age){
+        if (age >=6 && age <= 12){
+            if(age == 0){
+                throw new IllegalArgumentException(lang.NOZEROAGE);
+            }else{
+                this.status = "Usuario Jr";
+                return status;
+            }
         }
+        if (age >= 13 && age <= 17){
+            if(age == 0){
+                throw new IllegalArgumentException(lang.NOZEROAGE);
+            }else{
+                this.status = "Usuario Teen";
+                return status;
+            }
+        }
+        else{
+            this.status = "Usuario Adult";
+            return status;
+        }
+        
     }
+
+
 }

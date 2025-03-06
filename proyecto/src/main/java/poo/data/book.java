@@ -1,5 +1,7 @@
 package poo.data;
 
+import poo.ui.Lang;
+
 /**
  * La clase Book representa un libro con un título, un género y una edad recomendada.
  * Esta clase incluye métodos para obtener y establecer estos valores, así como validaciones
@@ -11,6 +13,8 @@ public class Book {
     private String titulo;
     private String genero;
     private int edad;
+    private int id;
+    private Lang lang;
 
     /**
      * Constructor de la clase Book. Crea una nueva instancia de un libro con un título, género y edad.
@@ -22,10 +26,11 @@ public class Book {
      *                                  si el género está vacío o nulo, o si la edad es menor o igual a 0.
      */
 
-    public Book(String titulo, String genero, int edad){
+    public Book(String titulo, String genero, int edad, int id){
         setTitulo(titulo);
         setGenero(genero);
         setEdad(edad);
+        setID(id);
     }
 
     /**
@@ -54,6 +59,14 @@ public class Book {
     public int getEdad(){
         return edad;
     }
+    /**
+     * Obtiene el ID del libro.
+     * @return El ID del libro.
+     */
+
+    public int getID(){
+        return id;
+    }
 
     /**
      * Establece el título del libro. Valida que el título no contenga números
@@ -64,7 +77,7 @@ public class Book {
 
     public void setTitulo(String titulo){
         if(titulo.matches(".*\\d.*") && titulo == null || titulo.trim().isEmpty()){
-            throw new IllegalArgumentException("El titulo no puede contener números ni estar vacio.");
+            throw new IllegalArgumentException(lang.NULLTITLE);
         }else {
             this.titulo = titulo;
         }
@@ -78,7 +91,7 @@ public class Book {
 
     public void setGenero(String genero){
         if(genero == null || genero.isEmpty()){
-            throw new IllegalArgumentException("El campo no puede estar en blanco.");
+            throw new IllegalArgumentException(lang.NULLGENRE);
         }else{
             this.genero = genero;
         }
@@ -92,9 +105,18 @@ public class Book {
 
     public void setEdad(int edad){
         if(edad <= 0){
-            throw new IllegalArgumentException("La edad debe ser mayor a 0.");
+            throw new IllegalArgumentException(lang.NOUNDERZERO);
         }else{
             this.edad = edad;
+        }
+    }
+
+    public void setID(int id){
+        int sizeId = String.valueOf(id).length();
+        if(sizeId < 4 || sizeId > 4){
+            throw new IllegalArgumentException(lang.ONLYFOURDIGITS);
+        }else{
+            this.id = id;
         }
     }
 }

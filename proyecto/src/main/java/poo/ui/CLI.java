@@ -10,6 +10,8 @@ import poo.process.UserGester;
 import poo.data.Book;
 import poo.data.User;
 import poo.ui.Lang;
+import java.io.*;
+import poo.process.BaseManager;
 
 /**
  * Clase CLI que representa la interfaz de línea de comandos para una biblioteca virtual.
@@ -23,6 +25,7 @@ public class CLI {
     private UserGester userGester;
     private String language;
     private Lang lang;
+    private BaseManager baseManager;
     
     /**
      * Constructor de CLI que inicializa los gestores y solicita la selección del idioma.
@@ -114,6 +117,15 @@ public class CLI {
                     listUser();
                     break;
                 case 5:
+                    readFileTop(); /*Este metodo lee los tops. Hacer un archivo de texto por cada idioma. (Esto va despues de los lennguajes)*/
+                    break;
+                case 6:
+                    makeBorrow(); /*Este metodo crea los prestamos */
+                    break;
+                case 7:
+                    returnBorrows(); /*Este metodo lee los prestamos */
+                    break;
+                case 8:
                     System.out.println(lang.EXIT);
                     System.exit(0);
                     break;
@@ -129,13 +141,14 @@ public class CLI {
      */
 
     private void listBook() {
-        List<Book> gester = bookGester.getBook();
-        if (gester.isEmpty()) {
-            System.out.println(lang.NOBOOKS);
-        } else {
-            for (Book book : gester) {
-                System.out.println(lang.TITLE + book.getTitulo() + lang.GENER + book.getGenero() + lang.AGE + book.getEdad());
+        String fileName = "Book.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String linea;
+            while((linea = br.readLine()) != null){
+                System.out.println(linea);
             }
+        }catch (IOException e){
+            System.out.println( lang.ERRORARCHIVE + e.getMessage());
         }
     }
     
@@ -144,14 +157,15 @@ public class CLI {
      */
 
     private void listUser() {
-        List<User> gester = userGester.getUser();
-        if (gester.isEmpty()) {
-            System.out.println(lang.NOUSERS);
-        } else {
-            for (User user : gester) {
-                System.out.println(lang.USER + user.getName() + lang.STATUS + user.getStatus());
+        String fileName = "User.txt";
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String line;
+            while((line = br.readLine()) != null){
+                System.out.println(line);
             }
-        }
+        } catch (IOException e){
+            System.out.println( lang.ERRORARCHIVE + e.getMessage());
+        } 
     }
     
     /**
@@ -166,9 +180,10 @@ public class CLI {
             String genero = scanner.nextLine();
             System.out.println(lang.AGEBOOK);
             int edad = scanner.nextInt();
-            scanner.nextLine(); 
+            System.out.println("Escriba el ID de 4 digitos del libro:");
+            int id = scanner.nextInt();
             
-            bookGester.addBook(titulo, genero, edad);
+            bookGester.addBook(titulo, genero, edad, id);
             System.out.println(lang.GOODBOOK);
         } catch (Exception e) {
             System.out.println(lang.ERRBOOK + e.getMessage());
@@ -184,11 +199,63 @@ public class CLI {
             System.out.println(lang.ADDUSER);
             String name = scanner.nextLine();
             System.out.println(lang.STATUSUSER);
-            String status = scanner.nextLine();
-            userGester.addUser(name, status);
+            int age = scanner.nextInt();
+            userGester.addUser(name, age);
             System.out.println(lang.GOODUSER);
+            userGester.addUser(name, age);
         } catch (Exception e) {
             System.out.println(lang.ERRUSER + e.getMessage());
         }
+    }
+
+    public void readFileTop(){
+    String fileName = "Top.txt";
+    try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+        String line;
+        while((line = br.readLine()) != null){
+            System.out.println(line);
+        }
+    } catch (IOException e) {
+        System.out.println(lang.ERRORARCHIVE + e.getMessage());
+        }
+    }
+
+    public void makeBorrow(){
+        int days = 0;
+        System.out.println(lang.REQUESTUSER);
+        String user = scanner.nextLine();
+        System.out.println(lang.REQUESTBOOK);
+        String book = scanner.nextLine();
+        System.out.println(lang.REQUESTAGE);
+        int age = scanner.nextInt();
+        if(age < 12){
+            System.out.println(lang.UNDERAGE);
+        }
+        if(age >= 13 && age <= 17){
+            System.out.println(lang.MIDDLEAGE);
+            System.out.println(lang.LENDDAYS);
+            days = scanner.nextInt();
+            if(days > 7){
+                System.out.println(lang.EXCEEDDAYS);
+            }
+            System.out.println(lang.AVALNAME);
+            String aval = scanner.nextLine();
+            if(aval.isEmpty() == true){
+                System.out.println(lang.NULLAVALNAME);
+            }
+            System.out.println(lang.TIMELEND);
+            days = scanner.nextInt();
+            baseManager.makeBorrow(user, book, days);
+        }
+        if(age >= 18){
+            System.out.println(lang.ONLYTWOBOOKS);
+            System.out.println(lang.TIMELEND);
+            days = scanner.nextInt();
+            baseManager.makeBorrow(user, book, days);
+        }
+    }
+
+    public void returnBorrows(){
+        baseManager.returnBorrows();
     }
 }
