@@ -243,13 +243,16 @@ public class CLI {
             if(aval.isEmpty() == true){
                 System.out.println(lang.NULLAVALNAME);
             }
+            System.out.println(lang.TIMELEND);
+            days = scanner.nextInt();
+            baseManager.makeBorrow(user, book, days);
         }
         if(age >= 18){
             System.out.println(lang.ONLYTWOBOOKS);
             System.out.println(lang.TIMELEND);
             days = scanner.nextInt();
+            baseManager.makeBorrow(user, book, days);
         }
-        baseManager.makeBorrow(user, book, days);
     }
 
     public void returnBorrows(){

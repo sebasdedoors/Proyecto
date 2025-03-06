@@ -19,7 +19,6 @@ public class BaseManager {
     private Lang lang;
 
     public void makeBorrow(String user, String book, int days){
-        if(searchBook(book) && searchUser(user)){
             borrows.add(user + "; " + book + ";" + lang.DESDE + today.getYear() + " - " + today.getMonthValue() + " - " + today.getDayOfMonth() + "." + lang.HASTA +  today.plusDays(days).getYear() + " - " + today.plusDays(days).getMonthValue() + " - " + today.plusDays(days).getDayOfMonth() + ";" +  lang.ACTIVEES);
 
             String fileName = "Borrows.txt";
@@ -32,7 +31,6 @@ public class BaseManager {
                 System.out.println(lang.ERRORARCHIVE);
                 e.printStackTrace();
             }
-        }
     }
 
 

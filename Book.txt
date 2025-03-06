@@ -20,3 +20,4 @@ The Man in the High Castle; Fantasia; 10; 1058
 The Late George Apley; Comedia; 9; 3692
 Tales from the Mall; Fantasia; 8; 5274
 Kaguya-sama: Love is War; Romance; 12; 6938 
+La Biblia; Religioso; 20; 6789
