@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class UserTest {
 
-        
+        /*Este metodo se asegura de que se cree un nuevo libro pidiendo de regeso sus parametros. */
         @Test
         public void testUserCreation(){
             User user = new User("Victor", 25);
@@ -18,6 +18,7 @@ public class UserTest {
             assertEquals("Usuario Adult", user.getStatus());
         }
 
+        /*Este metodo se asegura de que el nombre sea puesto de manera correcta. */
         @Test
         public void testSetNameValid(){
             User user = new User("Victor", 25);
@@ -25,6 +26,7 @@ public class UserTest {
             assertEquals("Carlos", user.getName());
         }
 
+        /*Este metodo se asegura de que el usuario reciba el mensaje de error al colocar un dato erroneo. */
         @Test
         public void testSetNameInvalid(){
             User user = new User("Victor", 25);
@@ -33,6 +35,7 @@ public class UserTest {
             });
         }
 
+        /*Este metodo se asegura de colocar la edad que fue enviada. */
         @Test
         public void testSetAgeValid(){
             User user = new User("Victor", 25);
@@ -40,6 +43,7 @@ public class UserTest {
             assertEquals(30, user.getAge());
         }
 
+        /*Este metodo se asegura de que el usuario reciba el mensaje de error. */
         @Test
         public void testSetAgeInvalid(){
             User user = new User("Victor", 25);
@@ -48,6 +52,7 @@ public class UserTest {
             });
         }
 
+        /*Este metodo se asegura de que se colocque el estatus correcto al usuario. */
         @Test
         public void testSetStatus(){
             User userChild = new User("Daniela", 10);
